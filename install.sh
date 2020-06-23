@@ -41,6 +41,7 @@ install(){
     sedcmd="s/8c35bef3-d51f-41ab-ac87-7b053410495b/${V2RAY_ID}/g"
     echo "用户：${V2RAY_ID}"
     cat config.json | sed $sedcmd >> config2.json
+    mv config2.json config.json
     cd ../
 
     echo "进行安装。。。"

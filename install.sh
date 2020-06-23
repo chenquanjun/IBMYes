@@ -38,9 +38,9 @@ clone_repo(){
 install(){
     cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry/v2ray
     read -p "请输入v2ray用户id：" V2RAY_ID
+    sedcmd="s/8c35bef3-d51f-41ab-ac87-7b053410495b/${V2RAY_ID}/g"
     echo "用户：${V2RAY_ID}"
-    cat config.json | sed 's/8c35bef3-d51f-41ab-ac87-7b053410495b/${V2RAY_ID}/g' >> config2.json
-    mv config2.json config.json
+    cat config.json | sed $sedcmd >> config2.json
     cd ../
 
     echo "进行安装。。。"

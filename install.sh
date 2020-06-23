@@ -36,8 +36,14 @@ clone_repo(){
 }
 
 install(){
+    cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry/v2ray
+    read -p "请输入v2ray用户id：" V2RAY_ID
+    echo "用户：${V2RAY_ID}"
+    cat config.json | sed 's/8c35bef3-d51f-41ab-ac87-7b053410495b/${V2RAY_ID}/g' >> config2.json
+    mv config2.json config.json
+    cd ../
+
     echo "进行安装。。。"
-    cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
     ibmcloud target --cf
     ibmcloud cf install
     ibmcloud cf push

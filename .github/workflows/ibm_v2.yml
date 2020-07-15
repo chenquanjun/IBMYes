@@ -6,10 +6,10 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: '0 12 * * FRI'
+    - cron: '0 12 * * SAT'
 
 jobs:
-  ibm-cloud-restart:
+  ibm-cloud-restart-v2:
     runs-on: ubuntu-latest
 
     steps:
